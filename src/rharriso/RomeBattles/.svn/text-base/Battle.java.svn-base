@@ -1,0 +1,164 @@
+package rharriso.RomeBattles;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class Battle {
+
+	//battle data
+	private int battleYear;
+	private String date;
+	private String battleName;
+	private String location;
+	private String result;
+	private Boolean naval;
+	private Boolean civil;
+	//location
+	private float lat;
+	private float lon;
+	
+	//coalitions
+	private Coalition coalition1;
+	private Coalition coalition2;
+		
+	public Battle() {
+		super();
+		// TODO Auto-generated constructor stub
+		
+		this.coalition1	= new Coalition();
+   		this.coalition2	= new Coalition();
+	}
+
+	public void loadBattleData(JSONObject battle_obj) throws JSONException{
+		/*
+		 * Load Battle Info
+		 */
+		this.battleName	= battle_obj.getString("BattleName");
+		this.date		= battle_obj.getString("Date");
+		this.result		= battle_obj.getString("Result");
+   		this.civil		= battle_obj.getBoolean("civil");
+   		this.naval		= battle_obj.getBoolean("naval");
+   		this.setBattleYear(battle_obj.getString("Year"));
+   		//	pull coordinates
+   		String coordString 		= battle_obj.getString("Coordinates");
+   		
+   		//some split by comma
+   		String[] coords	=  coordString.split(";");        			
+   		
+   		//some don't have coordinates
+   		if(coords.length == 2){
+   			this.lat = (new Float(coords[0]));
+       		this.lon = (new Float(coords[1]));
+   		}else{
+   			this.lat = 0;
+   			this.lon = 0;
+   		}
+   		
+   		/*
+   		 * Load Belligerant info
+   		 */
+   		this.coalition1.setAllies(battle_obj.getString("RomanAllies"));
+   		this.coalition1.setCommanders(battle_obj.getString("RomanCommanders"));
+   		this.coalition1.setStrength(battle_obj.getString("RomanStrength"));
+   		
+   		this.coalition2.setAllies(battle_obj.getString("EnemyAllies"));
+   		this.coalition2.setCommanders(battle_obj.getString("EnemyCommanders"));
+   		this.coalition2.setStrength(battle_obj.getString("EnemyStrength"));
+	}
+	
+	@Override
+	public String toString(){
+		return battleYear+", "+battleName+": "+result+" "+lat+";"+lon;		
+	}
+
+	/**
+	 * @return the date
+	 */
+	public String getDate() {
+		return date;
+	}
+
+	/**
+	 * @return the battleName
+	 */
+	public String getBattleName() {
+		return battleName;
+	}
+
+	/**
+	 * @return the location
+	 */
+	public String getLocation() {
+		return location;
+	}
+
+	/**
+	 * @return the result
+	 */
+	public String getResult() {
+		return result;
+	}
+
+	/**
+	 * @return the lat
+	 */
+	public float getLat() {
+		return lat;
+	}
+
+	
+	/**
+	 * @return the lon
+	 */
+	public float getLon() {
+		return lon;
+	}
+
+	/*
+	 * @param year the BattleYear to set
+	 */
+	private void setBattleYear(String year){
+		year = year.replace(" ", "");
+		if(year.contains("BC")){			
+			year = year.replace("BC", "");
+			this.battleYear = -(Integer.parseInt(year));			
+		}else{
+			this.battleYear = Integer.parseInt(year);			
+		}
+	}
+	
+	/**
+	 * @return the battleYear
+	 */
+	public int getBattleYear() {
+		return battleYear;
+	}
+
+	/**
+	 * @return the naval
+	 */
+	public Boolean getNaval() {
+		return naval;
+	}
+
+	/**
+	 * @return the civil
+	 */
+	public Boolean getCivil() {
+		return civil;
+	}
+	
+	/*
+	 * @return the coalition1
+	 */
+	public Coalition getCoalition1(){
+		return coalition1;
+	}
+	
+	/*
+	 * @return the coalition2
+	 */
+	public Coalition getCoalition2(){
+		return coalition2;
+	}
+}

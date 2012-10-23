@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, RomeBattleLocationsActivity!</string>
+    <string name="app_name">RomeBattleLocations</string>
+    <string name="image">image</string>
+    <string name="text">text</string>
+    
+    <string name="commanders_lbl">Commanders</string>
+    <string name="strength_lbl">Strength</string>
+    
+    <string name="red">#f00</string>
+    <string name="blue">#blue</string>
+</resources>

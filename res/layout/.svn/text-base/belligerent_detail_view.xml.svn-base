@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rharriso.RomeBattles.BelligerentDetailView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+  android:layout_weight="0.5">
+    
+    <ImageView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:contentDescription="@string/image"
+		android:id="@+id/factionIcon"/>
+	    
+	<TextView 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/belligerentText"
+		android:contentDescription="@string/text"
+		android:layout_toRightOf="@+id/factionIcon"/>
+	   
+	<TextView
+		android:layout_below="@+id/factionIcon"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/commanderLbl"
+		android:text="@string/commanders_lbl"
+		android:contentDescription="@string/text"/>
+	<TextView 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/commanderText"
+		android:layout_below="@+id/commanderLbl"
+		android:contentDescription="@string/text"/>
+	   
+	<TextView
+		android:layout_below="@+id/commanderText"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/strengthLbl"
+		android:text="@string/strength_lbl"
+		android:contentDescription="@string/text"/>	  
+	<TextView 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/strengthText"
+		android:contentDescription="@string/text"
+		android:layout_below="@+id/strengthLbl"/>
+    	  
+</rharriso.RomeBattles.BelligerentDetailView>

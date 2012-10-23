@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rharriso.RomeBattles.BattleDetailView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:visibility="invisible">
+    
+    <!-- Roman battle information -->
+    <include android:id="@+id/belligerentDetailView1"
+		layout="@layout/belligerent_detail_view"/>
+    
+	<!-- opponent battle information -->
+	<include android:id="@+id/belligerentDetailView2"
+		layout="@layout/belligerent_detail_view"/>
+	
+</rharriso.RomeBattles.BattleDetailView>

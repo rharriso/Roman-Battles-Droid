@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+	
+	<com.google.android.maps.MapView
+		android:id="@+id/mapView"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:enabled="true"
+		android:clickable="true"
+		android:apiKey="0x5FIr9EpIgOKhbBy-5xww2BVGQ37RjYtDCMSqQ"		
+	/>
+    
+    <include android:id="@+id/battleDetailView"
+	layout="@layout/battle_detail_view"/>
+    
+  	<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:gravity="bottom">
+    	
+    	<TextView android:id="@+id/sliderOut_txt"
+		android:layout_height="wrap_content"
+		android:layout_width="fill_parent"
+		android:textColor="#FFF"/>
+		
+		<SeekBar android:layout_width="fill_parent" 
+		android:layout_height="wrap_content" 
+		android:id="@+id/seekBar1"		
+		android:layout_marginTop="25dp"/>	
+		
+    </RelativeLayout>    	
+	
+</RelativeLayout>
